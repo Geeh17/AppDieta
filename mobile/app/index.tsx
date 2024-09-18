@@ -1,30 +1,16 @@
-import { View, Text, Image, StyleSheet, Pressable } from "react-native";
-import { colors } from "../constants/colors";
+import { Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View style={styles.container}>
-      <Image source={require("../assets/images/logo.png")} />
-
-      <Text style={styles.title}>
-        Dieta<Text style={{ color: colors.white }}>.AI</Text>
-      </Text>
-      <Text>Sua dieta personalizada com inteligência artificial</Text>
-
-      <Pressable>
-        <Text>Gerar dieta</Text>
-      </Pressable>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Text>Testando 1,2,3 </Text>
+      <Text>Testando 4,5,6 </Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.background,
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingLeft: 16,
-    paddingRight: 16,
-  }
-});
