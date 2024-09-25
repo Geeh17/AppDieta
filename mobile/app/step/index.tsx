@@ -20,16 +20,60 @@ const schema = z.object({
   height: z.string().min(1, { message: "A altura é obrigatória" }),
 });
 
-type FormData = z.infer<typeof schema>
+type FormData = z.infer<typeof schema>;
 
 export default function Step() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
+
   return (
     <View style={styles.container}>
       <Header step="Passo 1" title="Vamos começar" />
 
       <ScrollView style={styles.content}>
         <Text style={styles.label}>Nome:</Text>
-        <Input />
+        <Input
+          name="name"
+          control={control}
+          placeholder="Digite seu nome..."
+          error={errors.name?.message}
+          keyboardType="default"
+        />
+        <Text style={styles.label}>Seu peso atual:</Text>
+        <Input
+          name="weight"
+          control={control}
+          placeholder="Ex: 75"
+          error={errors.weight?.message}
+          keyboardType="numeric"
+        />
+
+        <Text style={styles.label}>Sua altura atual:</Text>
+        <Input
+          name="height"
+          control={control}
+          placeholder="Ex: 1.92"
+          error={errors.height?.message}
+          keyboardType="numeric"
+        />
+
+        <Text style={styles.label}>Sua idade atual:</Text>
+        <Input
+          name="age"
+          control={control}
+          placeholder="80"
+          error={errors.age?.message}
+          keyboardType="numeric"
+        />
+
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonText}>Avançar</Text>
+        </Pressable>
       </ScrollView>
     </View>
   );
@@ -49,5 +93,17 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: "bold",
     marginBottom: 8,
+  },
+  button: {
+    backgroundColor: colors.blue,
+    height: 44,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 4,
+  },
+  buttonText: {
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
