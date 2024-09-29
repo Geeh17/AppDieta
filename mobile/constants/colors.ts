@@ -2,9 +2,9 @@
 export const colors = {
   background: '#0F232C',
   white: '#FFF',
-  green: '#1EB500',
+  green: '#61C006',
   orange: '#F79600',
-  blue: '#009AD6',
+  blue: '#61C006',
   black: '#000'
 };
 

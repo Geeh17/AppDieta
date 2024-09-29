@@ -54,7 +54,7 @@ export default function Create() {
   ];
 
   const objectiveOptions = [
-    { label: "Emagrecer", value: "emagrecer" },
+    { label: "Emagrecer", value: "Emagrecer" },
     { label: "Hipertrofia", value: "Hipertrofia" },
     { label: "Hipertrofia + Definição", value: "Hipertrofia e Definição" },
     { label: "Definição", value: "Definição" },
